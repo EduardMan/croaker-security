@@ -1,0 +1,13 @@
+app-properties:
+  jwt:
+    ttl: 60
+    secret: ntyS123##j5e%4nY@V4%bL7>Gk444!favJGidhaT^&2g
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:6870/croaker_users
+    username: postgres
+    password: password
+  jpa:
+    hibernate:
+      ddl-auto: update
