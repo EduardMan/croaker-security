@@ -4,8 +4,8 @@ services:
     image: ghcr.io/eduardman/fileshares-account:latest
     build: .
     depends_on:
-      - fileshare-account-db
-  fileshare-account-db:
+      - fileshares-account-db
+  fileshares-account-db:
     image: postgres
     environment:
       - POSTGRES_DB=fileshare_account
