@@ -9,14 +9,12 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.filter.OncePerRequestFilter;
-import tech.itparklessons.fileshares.user.model.dto.RegistrationUserDto;
 import tech.itparklessons.fileshares.user.model.entity.Users;
 
 import javax.servlet.FilterChain;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.text.ParseException;
-import java.util.Collections;
 import java.util.stream.Collectors;
 
 public class TokenFilter extends OncePerRequestFilter {
