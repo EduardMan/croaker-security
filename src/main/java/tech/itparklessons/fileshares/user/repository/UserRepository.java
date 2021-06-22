@@ -2,12 +2,11 @@ package tech.itparklessons.fileshares.user.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
-import tech.itparklessons.fileshares.user.model.dto.UserInformationResponse;
 import tech.itparklessons.fileshares.user.model.entity.Users;
 
 public interface UserRepository extends JpaRepository<Users, Long> {
     Users findUserByLogin(String login);
 
-    @Query(value = "SELECT id, login, username, email FROM users WHERE login = :loginOrEmail OR email = :loginOrEmail", nativeQuery = true)
-    UserInformationResponse findByLoginOrEmailIs(String loginOrEmail);
+    @Query(value = "SELECT * FROM users WHERE login = :loginOrEmail OR email = :loginOrEmail", nativeQuery = true)
+    Users findByLoginOrEmailIs(String loginOrEmail);
 }
