@@ -93,6 +93,6 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserInformationResponse getUserInfo(String loginOrEmail) {
-        return userMapper.toUserInformationResponse(userRepository.findByLoginOrEmailIs(loginOrEmail));
+        return userRepository.findByLoginOrEmailIs(loginOrEmail);
     }
 }
