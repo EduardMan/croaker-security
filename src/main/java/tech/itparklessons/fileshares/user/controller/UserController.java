@@ -10,6 +10,7 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 import tech.itparklessons.fileshares.user.model.dto.LoginUserDto;
 import tech.itparklessons.fileshares.user.model.dto.RegistrationUserDto;
+import tech.itparklessons.fileshares.user.model.dto.UserInformationResponse;
 import tech.itparklessons.fileshares.user.model.entity.Users;
 import tech.itparklessons.fileshares.user.service.UserService;
 
@@ -42,5 +43,10 @@ public class UserController {
     @GetMapping("/verify")
     public boolean verify(@RequestHeader("Authorization") String token) throws JOSEException, ParseException {
         return userService.verifyJWT(token);
+    }
+
+    @GetMapping
+    public UserInformationResponse getUserInfo(@RequestParam String loginOrEmail) {
+        return userService.getUserInfo(loginOrEmail);
     }
 }

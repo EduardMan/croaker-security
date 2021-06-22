@@ -15,6 +15,7 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import tech.itparklessons.fileshares.user.model.dto.RegistrationUserDto;
+import tech.itparklessons.fileshares.user.model.dto.UserInformationResponse;
 import tech.itparklessons.fileshares.user.model.entity.Users;
 import tech.itparklessons.fileshares.user.model.enums.Role;
 import tech.itparklessons.fileshares.user.repository.UserRepository;
@@ -88,5 +89,10 @@ public class UserServiceImpl implements UserService {
         }
 
         return deserialized.verify(verifier);
+    }
+
+    @Override
+    public UserInformationResponse getUserInfo(String loginOrEmail) {
+        return userMapper.toUserInformationResponse(userRepository.findByLoginOrEmailIs(loginOrEmail));
     }
 }
