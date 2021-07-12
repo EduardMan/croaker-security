@@ -11,3 +11,7 @@ spring:
   jpa:
     hibernate:
       ddl-auto: update
+
+opentracing:
+  jaeger:
+    service-name: fileshares-account
